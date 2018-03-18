@@ -1,5 +1,4 @@
 # Wiskunde_Maze
-
 using System;
 using System.Text;
 using System.Drawing;
@@ -182,12 +181,15 @@ namespace Mazes
             }
             else
             {
+                //Add path to checked paths
                 pad[r * squareSizeW + c] = true;
 
                 if (!((cellMatrix[r, c] & 8) > 0) && !solutionFound)//bottom side open?
                 {
                     Console.WriteLine("Move down --> row: {0}, column: {1}", r + 1, c);
                     Solve(level, r + 1, c);
+
+                    //if solution found, add the cell to the solutionPath
                     if (solutionFound)
                     {
                         numberOfSolutionCells++;
